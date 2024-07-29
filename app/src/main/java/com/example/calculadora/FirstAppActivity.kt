@@ -21,17 +21,63 @@ class FirstAppActivity : AppCompatActivity() {
             insets
         }
 
-        val btnStart = findViewById<AppCompatButton>(R.id.btnStart)
-        val etName = findViewById<AppCompatEditText>(R.id.etName)
+        val btnSum = findViewById<AppCompatButton>(R.id.btnSum)
+        val btnRes = findViewById<AppCompatButton>(R.id.btnRes)
+        val btnMul = findViewById<AppCompatButton>(R.id.btnMul)
+        val btnDiv = findViewById<AppCompatButton>(R.id.btnDiv)
 
-        btnStart.setOnClickListener{
-            val name = etName.text.toString()
 
-            if (name.isNotEmpty()) {
-                Log.i("Pedro", "Se ha pulsado el boton ${name}")
-                val intent = Intent(this, ResultActivity::class.java)
-                intent.putExtra("name", name)
+        val number1 = findViewById<AppCompatEditText>(R.id.number1)
+        val number2 = findViewById<AppCompatEditText>(R.id.number2)
+
+        val num1 = number1.text.toString().toDoubleOrNull()
+        val num2 = number2.text.toString().toDoubleOrNull()
+
+        btnSum.setOnClickListener{
+            if (num1 != null && num2 != null) {
+                val result = num1 + num2
+                val intent = Intent(this, ResultActivity::class.java).apply {
+                    putExtra("result", "El resultado de la suma es: $result")
+                }
                 startActivity(intent)
+            } else {
+                Log.e("FirstAppActivity", "Invalid input: num1 = $num1, num2 = $num2")
+            }
+        }
+
+        btnRes.setOnClickListener{
+            if (num1 != null && num2 != null) {
+                val result = num1 - num2
+                val intent = Intent(this, ResultActivity::class.java).apply {
+                    putExtra("result", "El resultado de la resta es: $result")
+                }
+                startActivity(intent)
+            } else {
+                Log.e("FirstAppActivity", "Invalid input: num1 = $num1, num2 = $num2")
+            }
+        }
+
+        btnMul.setOnClickListener{
+            if (num1 != null && num2 != null) {
+                val result = num1 * num2
+                val intent = Intent(this, ResultActivity::class.java).apply {
+                    putExtra("result", "El resultado de la multiplicación es: $result")
+                }
+                startActivity(intent)
+            } else {
+                Log.e("FirstAppActivity", "Invalid input: num1 = $num1, num2 = $num2")
+            }
+        }
+
+        btnDiv.setOnClickListener{
+            if (num1 != null && num2 != null) {
+                val result = num1 / num2
+                val intent = Intent(this, ResultActivity::class.java).apply {
+                    putExtra("result", "El resultado de la división es: $result")
+                }
+                startActivity(intent)
+            } else {
+                Log.e("FirstAppActivity", "Invalid input: num1 = $num1, num2 = $num2")
             }
         }
 
