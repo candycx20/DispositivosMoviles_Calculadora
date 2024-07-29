@@ -26,14 +26,12 @@ class FirstAppActivity : AppCompatActivity() {
         val btnMul = findViewById<AppCompatButton>(R.id.btnMul)
         val btnDiv = findViewById<AppCompatButton>(R.id.btnDiv)
 
-
         val number1 = findViewById<AppCompatEditText>(R.id.number1)
         val number2 = findViewById<AppCompatEditText>(R.id.number2)
 
-        val num1 = number1.text.toString().toDoubleOrNull()
-        val num2 = number2.text.toString().toDoubleOrNull()
-
-        btnSum.setOnClickListener{
+        btnSum.setOnClickListener {
+            val num1 = number1.text.toString().toDoubleOrNull()
+            val num2 = number2.text.toString().toDoubleOrNull()
             if (num1 != null && num2 != null) {
                 val result = num1 + num2
                 val intent = Intent(this, ResultActivity::class.java).apply {
@@ -45,7 +43,9 @@ class FirstAppActivity : AppCompatActivity() {
             }
         }
 
-        btnRes.setOnClickListener{
+        btnRes.setOnClickListener {
+            val num1 = number1.text.toString().toDoubleOrNull()
+            val num2 = number2.text.toString().toDoubleOrNull()
             if (num1 != null && num2 != null) {
                 val result = num1 - num2
                 val intent = Intent(this, ResultActivity::class.java).apply {
@@ -57,7 +57,9 @@ class FirstAppActivity : AppCompatActivity() {
             }
         }
 
-        btnMul.setOnClickListener{
+        btnMul.setOnClickListener {
+            val num1 = number1.text.toString().toDoubleOrNull()
+            val num2 = number2.text.toString().toDoubleOrNull()
             if (num1 != null && num2 != null) {
                 val result = num1 * num2
                 val intent = Intent(this, ResultActivity::class.java).apply {
@@ -69,7 +71,9 @@ class FirstAppActivity : AppCompatActivity() {
             }
         }
 
-        btnDiv.setOnClickListener{
+        btnDiv.setOnClickListener {
+            val num1 = number1.text.toString().toDoubleOrNull()
+            val num2 = number2.text.toString().toDoubleOrNull()
             if (num1 != null && num2 != null) {
                 val result = num1 / num2
                 val intent = Intent(this, ResultActivity::class.java).apply {
@@ -80,6 +84,5 @@ class FirstAppActivity : AppCompatActivity() {
                 Log.e("FirstAppActivity", "Invalid input: num1 = $num1, num2 = $num2")
             }
         }
-
     }
 }
